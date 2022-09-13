@@ -37,7 +37,7 @@ const data = {
 
         {
             id: "6", 
-            name: "Sy Tag", 
+            name: "Microscope", 
             price: 1000000, 
             image:"./pics/SY.png",
         }, 
