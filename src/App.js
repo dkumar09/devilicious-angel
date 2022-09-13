@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import data from './components/back/data/Data';
 import Header from './components/front/header/Header';
 import Cart from './components/front/cart/Cart';
 import Products from './components/front/products/Products';
-import Signup from './components/front/Signup/Signup';
+import Signup from './components/front/signup/Signup';
+// import Sidebar from './components/front/sidebar/Sidebar';
+
+import "./App.scss"
 
 const App = () => {
   const { productItems } = data;
@@ -43,25 +46,17 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className='app'>
       <Router>
-        <Header cartItems={cartItems} />
-        <Routes>
-          <Route path="/" exact element={<Products productItems={productItems} handleAddProduct={handleAddProduct} />}>
-          </Route>
-          <Route path="/login" exact element={<Signup />}></Route>
-          <Route path="/cart" exact element={<Cart cartItems={cartItems} handleClearProduct={handleClearProduct} handleClearance={handleClearance} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} />}></Route>
-        </Routes>
-
-
-        {/* <RRoutes */}
-        {/* productItems={productItems} */}
-        {/* cartItems={cartItems} */}
-        {/* handleAddProduct={handleAddProduct} */}
-        {/* handleRemoveProduct={handleRemoveProduct} */}
-        {/* handleClearance={handleClearance} */}
-        {/* handleClearProduct={handleClearProduct} */}
-        {/* /> */}
+          <Header cartItems={cartItems} />
+        <div className='container'>
+          {/* <Sidebar /> */}
+          <Routes>
+            <Route path="/" exact element={<Products productItems={productItems} handleAddProduct={handleAddProduct} />}></Route>
+            <Route path="/signup" exact element={<Signup />}></Route>
+            <Route path="/cart" exact element={<Cart cartItems={cartItems} handleClearProduct={handleClearProduct} handleClearance={handleClearance} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct} />}></Route>
+          </Routes>
+        </div>
       </Router>
 
     </div>

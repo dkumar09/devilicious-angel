@@ -4,26 +4,26 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: orange;
     border-radius: 5px;
 }
 
 .card{
     width: 300px;
     height: 400px;
-    border: 1px solid black;
+    border: 1px solid var(--text);
     border-radius: 5px;
     overflow: hidden;
     padding: 10px;
     margin: 40px 20px;
-    background-color: white;
+    background-color: var(--primary);
+    color: var(--text);
 }
 
 .product-image{
     width: 100%;
-    max-width: 300px;
+    min-width: 350px;
     max-height: 150px;
-    object-fit: contain;
+    object-fit: cover;
 }
 .product-name{
     text-transform: uppercase;
@@ -42,7 +42,7 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    background-color: black;
+    background-color: var(--accent);
     color: white;
     height: 40px;
     display: block;
