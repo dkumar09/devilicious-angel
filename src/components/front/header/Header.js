@@ -33,7 +33,7 @@ const Header = ({ cartItems }) => {
                 <ul>
                     <li>
                         <button className='mode-button' onClick={() => { setDarkMode(!darkMode); changeTheme(darkMode ? themes.light : themes.dark); }}>
-                            <span style={{ fontSize: "20px" }}>{darkMode ? <i class="fas fa-toggle-on"></i> : <i class="fas fa-toggle-off"></i>}</span>
+                            <span style={{ fontSize: "20px" }}><i class="far fa-moon"></i> {darkMode ? <i class="fas fa-toggle-on"></i> : <i class="fas fa-toggle-off"></i>} <i class="far fa-sun"></i></span>
                         </button>
                     </li>
                 </ul>

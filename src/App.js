@@ -1,14 +1,15 @@
 import React, { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import data from './components/back/data/Data';
-import Header from './components/front/header/Header';
 import Cart from './components/front/cart/Cart';
+import Header from './components/front/header/Header';
 import Products from './components/front/products/Products';
 import Signup from './components/front/signup/Signup';
-// import Sidebar from './components/front/sidebar/Sidebar';
+import Sidebar from './components/front/sidebar/Sidebar';
 
-import "./App.scss"
+import "./App.scss";
 
+const itemContext = createContext()
 const App = () => {
   const { productItems } = data;
   const [cartItems, setCartItems] = useState([])
@@ -47,10 +48,11 @@ const App = () => {
 
   return (
     <div className='app'>
+    <itemContext.Provider value = {{cartItems, setCartItems}}>
       <Router>
           <Header cartItems={cartItems} />
         <div className='container'>
-          {/* <Sidebar /> */}
+          <Sidebar />
           <Routes>
             <Route path="/" exact element={<Products productItems={productItems} handleAddProduct={handleAddProduct} />}></Route>
             <Route path="/signup" exact element={<Signup />}></Route>
@@ -59,8 +61,8 @@ const App = () => {
         </div>
       </Router>
 
+    </itemContext.Provider>
     </div>
   )
 }
-
 export default App

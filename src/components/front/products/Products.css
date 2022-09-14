@@ -15,7 +15,7 @@
     overflow: hidden;
     padding: 10px;
     margin: 40px 20px;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: var(--text);
 }
 

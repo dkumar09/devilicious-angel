@@ -5,7 +5,7 @@ const Products = ({ productItems, handleAddProduct}) => {
   console.log("pitems", productItems);
   return (
       <div className="products">
-        {productItems.map((productItem) => (
+        {productItems.sort((a,b) => {if(a.name < b.name) return -1; if(a.name > b.name) return 1; return 0;}).map((productItem) => (
           <div className="card">
             <Modal image={{src:productItem.image, name: productItem.image}} />
             <h3 className="product-name">{productItem.name}</h3>

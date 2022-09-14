@@ -1,6 +1,15 @@
 .sidebar{
    min-height: 100vh;
-   width: 80px; 
-   border: 1px solid purple;
-   flex: 2;
+   width: 220px;
+   border-right: 1px solid var(--text);
+   .filters{
+      padding: 10px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .filter{
+         padding: 10px;
+      }
+   }
 }
