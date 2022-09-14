@@ -53,7 +53,7 @@ const App = () => {
           <Header cartItems={cartItems} />
 
         <div className='container'>
-          {/* <Sidebar /> */}
+          <Sidebar />
           <Routes>
             <Route path="/" exact element={<Products productItems={productItems} handleAddProduct={handleAddProduct} />}></Route>
             <Route path="/signup" exact element={<Signup />}></Route>
