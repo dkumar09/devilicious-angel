@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import data from './components/back/data/Data';
 import Cart from './components/front/cart/Cart';
@@ -8,10 +8,11 @@ import Signup from './components/front/signup/Signup';
 import Sidebar from './components/front/sidebar/Sidebar';
 
 import "./App.scss";
+import { ItemContext } from './components/utils/ItemContext';
 
-const itemContext = createContext()
 const App = () => {
-  const { productItems } = data;
+  const { productItems } = useContext(ItemContext);
+  console.log("yaya",productItems);
   const [cartItems, setCartItems] = useState([])
 
   const handleAddProduct = (product) => {
@@ -48,11 +49,11 @@ const App = () => {
 
   return (
     <div className='app'>
-    <itemContext.Provider value = {{cartItems, setCartItems}}>
       <Router>
           <Header cartItems={cartItems} />
+
         <div className='container'>
-          <Sidebar />
+          {/* <Sidebar /> */}
           <Routes>
             <Route path="/" exact element={<Products productItems={productItems} handleAddProduct={handleAddProduct} />}></Route>
             <Route path="/signup" exact element={<Signup />}></Route>
@@ -60,8 +61,6 @@ const App = () => {
           </Routes>
         </div>
       </Router>
-
-    </itemContext.Provider>
     </div>
   )
 }

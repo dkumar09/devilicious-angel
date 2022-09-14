@@ -10,6 +10,15 @@
       align-items: center;
       .filter{
          padding: 10px;
+         .btn{
+            padding: 10px;
+            background-color: red;
+            color: whitesmoke;
+            font-weight: 800;
+            border-radius: 8px;
+            border: none;
+
+         }
       }
    }
 }
